@@ -143,6 +143,7 @@ switch(~){
 case ~: 실행문; break;
 default: 실행문; // break 불필요
 }
+
 2.4.5 조건부 연산자 사용
 삼항연산자
 
@@ -154,8 +155,11 @@ while(조건문){
 if(조건문) continue;
 실행문;
 }
+
 2.5.6 중첩 반복문
+
 2.6 객체
+
 2.6.1 배열
 const fruits = ['사과','배']
 const arrayOfArray = [[1,2,3],[4,5]];
@@ -171,12 +175,14 @@ arrayOfArray.splice(1); // 인덱스 1부터 모두 제거
 arrayOfArray.includes('가'); // 배열 '가' 포함여부 확인 true/false
 arrayOfArray.indexOf('가'); // 배열 '가'의 인덱스 없으면 -1(앞에서 부터 탐색)
 arrayOfArray.lastIndexOf('가'); // 배열 '가'의 마지막 인덱스 없으면 -1 (뒤에서 부터 탐색)
+
 2.6.2 함수
 function() {}
 () => {} // arrow function
 
 const b = function() {} // 무기명 함수에 이름 부여
 const c = () => {} // 무기명 함수에 이름 부여
+
 2.6.3 객체 리터럴
 const person = {
 name : "Jordan", // Property 속성이름: 속성값
