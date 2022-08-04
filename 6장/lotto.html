@@ -21,8 +21,8 @@
 <div id="result">추첨 결과는? </div>
 <div id="bonus">보너스: </div>
 <script>
-    const candidate = Array(45).fill().map((v, i) => i + 1);
-    const shuffle = [];
+    const candidate = Array(45).fill().map((v, i) => i + 1); //1에서 45까지 숫자를 추첨하는 코드, 뽑은 값들은 candidate에 저장
+    const shuffle = []; //빈 배열 하나를 두고 candidate변수에서 하나씩 무작위로 값을 뽑아 옮겨야 한다.
     for (let i = candidate.length; i > 0; i--) {
         const random = Math.floor(Math.random() * i);
         const spliceArray = candidate.splice(random, 1);
@@ -43,12 +43,12 @@
     for (let i = 0; i < winBalls.length; i++) {
         setTimeout(() => {
             drawBall(winBalls[i], $result);
-        }, 1000 * (i + 1));
+        }, 1000 * (i + 1));// setTimeout의 콜백 함수는 지정한 시간뒤에 호출된다.
     }
 
     const $bonus = document.querySelector('#bonus');
     setTimeout(() => {
         drawBall(bonus, $bonus);
-    }, 7000);
+    }, 7000); //타이머 구현, 공 7개가 나오는데 공 1개가 나올때마다 1초가 걸리니깐 총 7초가 걸린다.
 </script>
 </body>
