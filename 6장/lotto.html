@@ -21,21 +21,28 @@
 <div id="result">추첨 결과는? </div>
 <div id="bonus">보너스: </div>
 <script>
-    const candidate = Array(45).fill().map((v, i) => i + 1); //1에서 45까지 숫자를 추첨하는 코드, 뽑은 값들은 candidate에 저장
-    const shuffle = []; //빈 배열 하나를 두고 candidate변수에서 하나씩 무작위로 값을 뽑아 옮겨야 한다.
+    const candidate = Array(45).fill().map((v, i) => i + 1); //Array(45)를 사용하여 빈 배열 45개를 만들고, undefined로 채워준다.
+                                                              //map을 통하여 index+1을 넣는 코드다. 1부터 45까지 넣어주는 코드
+    const shuffle = []; //공 45개를 섞어넣는 배열
     for (let i = candidate.length; i > 0; i--) {
-        const random = Math.floor(Math.random() * i);
-        const spliceArray = candidate.splice(random, 1);
-        const value = spliceArray[0];
-        shuffle.push(value);
+        const random = Math.floor(Math.random() * i);//무작위로 인덱스 뽑는 코드
+        const spliceArray = candidate.splice(random, 1);//뽑은 값은 배열에 들어있고, splice의 리턴값은 배열이다.
+        const value = spliceArray[0]; //배열안에 들어가있는 값을 꺼낸다.
+        shuffle.push(value); //shuffle 배열에 넣는 코드
     }
-    console.log(shuffle);
-    const winBalls = shuffle.slice(0, 6).sort((a, b) => a - b);
+    
+    const winBalls = shuffle.slice(0, 6).sort((a, b) => a - b); //앞에있는 6개를 자르고 정렬 시킨다.
+        // slice : 원본을 바꾸지 않고, 두번째 매개변수가 인덱스를 의미, 추가를 못함
+        // splice : 원본을 바꾼다, 두번째 매개변수가 길이를 의미
+        // sort : 리턴값에 따라 어떻게 정렬할지 결정, 원본을 바꿈
+        // 배열.slice() : 원본이 그대로 잘려나옴, 원본과 동일X
+        // 배열.slice().sort() : 원본이 수정되지 않으면서 새로 정렬할 수 있음
     const bonus = shuffle[6];
     const $result = document.querySelector('#result');
+
     function drawBall(number, $parent) {
-        const $ball = document.createElement('div');
-        $ball.className = 'ball';
+        const $ball = document.createElement('div'); //div태그 생성
+        $ball.className = 'ball'; //클래스 이름 지정
         $ball.textContent = number;
         $parent.appendChild($ball);
     }
